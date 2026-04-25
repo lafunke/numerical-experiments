@@ -39,20 +39,6 @@ class BrusselatorOperator(Operator): # pyMOR object (that will be computed using
 
         self.parameters_own = {'beta': 1} # this is the parameter
 
-    # def apply(self, U, mu=None):   # compute the residual
-
-    #     gfu_impl = U.vectors[0].real_part.impl   # get the Gridfunction (ngsolve)
-    #     vec_ng = gfu_impl.vec    # get the BaseVector (ngsolve)
-
-    #     current_beta = mu['beta']   # update beta
-    
-    #     res_vec = self.residual_func(vec_ng, current_beta)  # compute residual in ngsolve, return basevector
-    
-    #     res_gf = GridFunction(self.V_h)  # wrap into new Gridfunction
-    #     res_gf.vec.data = res_vec
-    
-    #     return self.range.make_array([res_gf])      # make VectorArray (pyMOR)
-
     def apply(self, U, mu=None):
         current_beta = mu['beta']
         result_list = []
